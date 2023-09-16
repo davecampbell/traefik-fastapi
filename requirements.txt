@@ -1,0 +1,6 @@
+asyncpg
+fastapi==0.89.1
+ormar==0.12.1
+psycopg2-binary
+uvicorn==0.20.0
+
