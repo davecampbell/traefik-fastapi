@@ -1,0 +1,5 @@
+INFO:databases:Connected to database postgresql://fastapi_traefik:********@db:5432/fastapi_traefik
+DEBUG:databases:Query: SELECT users.id AS id, users.email AS email, users.active AS active FROM users WHERE users.email = $1 ORDER BY users.id  Args: ('test@test.com',)
+DEBUG:app.main:Here i am.
+DEBUG:app.main:Here i am.
+INFO:databases:Disconnected from database postgresql://fastapi_traefik:********@db:5432/fastapi_traefik
