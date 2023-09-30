@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Messages {% endblock %}</h1>
-    <h2>{{ message }}</h2>
+    <h1>{% block title %} A Message {% endblock %}</h1>
+    <h2>Title - {{ message['title'] }}</h2>
+    <h3>message - {{ message['content'] }}</h3> 
 {% endblock %}

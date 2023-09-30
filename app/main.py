@@ -79,7 +79,7 @@ def other_comments():
 @flask_app.route('/messages/<int:idx>')
 def message(idx):
     flask_app.logger.info('Building the messages list...')
-    messages = ['Message Zero', 'Message One', 'Message Two']
+    # messages = ['Message Zero', 'Message One', 'Message Two']
     try:
         flask_app.logger.debug('Get message with index: {}'.format(idx))
         return render_template('message.html', message=messages[idx])
@@ -92,7 +92,7 @@ def error500():
     abort(500)
 
 @flask_app.route('/create/', methods=('GET', 'POST'))
-def create():
+def create_message():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
@@ -103,12 +103,13 @@ def create():
             flash('Content is required!')
         else:
             messages.append({'title': title, 'content': content})
-            return redirect(url_for('index'))
+            flask_app.logger.debug(f"appended to messages.  now {str(len(messages)+1)} of them.")
+            return redirect(url_for('hello'))
         
     return render_template('create.html')
 
 @flask_app.route('/courseform', methods=('GET', 'POST'))
-def index():
+def courseform():
     form = CourseForm()
     if form.validate_on_submit():
         flask_app.logger.debug("Here i am.")
